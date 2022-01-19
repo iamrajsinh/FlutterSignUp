@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  static const routeName = '/login';
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -10,6 +13,11 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey();
+
+  void _submit(){
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +25,30 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
         backgroundColor: Colors.deepOrangeAccent,
         title: Text(
-          'Log In | Sign Up',
+          'L O G I N',
               style: TextStyle(
-                color: Colors.black54,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1,
         ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FlatButton(onPressed: (){
+              Navigator.of(context).pushNamed(SignupScreen.routeName);
+            }, child: Row(
+              children: [
+                Text('SIGN UP',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black54,
+
+                ),)
+              ],
+            )),
+          )
+        ],
       ),
       body: Stack(
         children: [
@@ -100,7 +125,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         shape: StadiumBorder(
 
                         ),
-                          onPressed: () {},
+                          onPressed: () {
+                          _submit();
+                          },
                           color: Colors.black54,
 
                           child: Text(
